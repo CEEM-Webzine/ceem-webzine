@@ -1,52 +1,68 @@
-// CEEM Webzine - Main JavaScript
-
-// Smooth scroll functionality
+// CEEM Webzine - Main JavaScript (v1.1.0)
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('CEEM Webzine loaded successfully');
+    console.log('CEEM Webzine v1.1.0 loaded');
 
-// 1. [체크] 주소창에 ?issue=값이 있는지 먼저 확인합니다.
+    // 1. [파라미터 확인] 주소창의 ?issue= 값을 확인하여 불러올 파일을 결정합니다.
     const urlParams = new URLSearchParams(window.location.search);
     const selectedIssue = urlParams.get('issue');
-    
-    // 2. [결정] 값이 있으면 archives 폴더를 보고, 없으면 기본 data.json을 봅니다.
     const dataFile = selectedIssue ? `archives/${selectedIssue}.json` : 'data.json';
     
-    console.log('불러올 파일 경로:', dataFile); // 브라우저 콘솔(F12)에서 확인용
+    console.log('불러올 파일 경로:', dataFile);
 
-    // 3. [중요] 반드시 아래처럼 fetch(dataFile) 변수를 넣어야 합니다.
-    fetch(dataFile) 
+    // 2. [데이터 로딩] 결정된 JSON 파일을 불러옵니다.
+    fetch(dataFile)
         .then(response => {
             if (!response.ok) throw new Error('파일을 찾을 수 없습니다.');
             return response.json();
         })
         .then(data => {
-            // [A] 호수 정보 및 에디터 노트 업데이트
-            if (data.issueInfo) {
-                document.querySelector('.issue-number').textContent = `${data.issueInfo.vol} | ${data.issueInfo.issue}`;
-                document.querySelector('.issue-date').textContent = data.issueInfo.date;
-                const noteElement = document.getElementById('editors-note-text');
-                if (noteElement && data.issueInfo.editorsNote) {
-                    noteElement.textContent = data.issueInfo.editorsNote;
-                }
+            renderWebzine(data); // 웹진 화면 그리기
+            setupAnimations();    // 애니메이션 적용
+        })
+        .catch(error => {
+            console.error('Error loading webzine data:', error);
+            // 아카이브 로딩 실패 시 기본 data.json으로 복구 시도 (선택 사항)
+            if (selectedIssue) window.location.href = window.location.pathname;
+        });
+
+    // 3. [렌더링 함수] 데이터를 받아 화면을 구성합니다. (레이아웃 강제 유지 로직)
+    function renderWebzine(data) {
+        // [A] 호수 정보 및 에디터 노트 업데이트
+        if (data.issueInfo) {
+            document.querySelector('.issue-number').textContent = `${data.issueInfo.vol} | ${data.issueInfo.issue}`;
+            document.querySelector('.issue-date').textContent = data.issueInfo.date;
+            const noteElement = document.getElementById('editors-note-text');
+            if (noteElement && data.issueInfo.editorsNote) {
+                noteElement.textContent = data.issueInfo.editorsNote;
             }
+        }
 
-            // [B] 논문 리스트 업데이트 (이 부분이 추가되었습니다)
-            const container = document.getElementById('papers-container');
-            if (container && data.papers) {
-                container.innerHTML = ''; // 기존 내용을 비웁니다.
-                
-                data.papers.forEach(paper => {
-                    // 배지 HTML 생성
-                    const badgesHTML = paper.badges.map(badge => 
-                        `<span class="badge badge-${badge}">${badge.replace(/-/g, ' ')}</span>`
-                    ).join('');
+        // [B] 논문 리스트 업데이트
+        const container = document.getElementById('papers-container');
+        if (container && data.papers) {
+            container.innerHTML = ''; 
 
-                    // 논문 카드 HTML 생성
-                    const paperHTML = `
-                        <article class="paper-card">
-                            <div class="paper-text">
-                                <div class="paper-badges">${badgesHTML}</div>
-                                <p class="paper-year">${paper.yearInfo}</p>
+            data.papers.forEach(paper => {
+                // 배지 생성 (JSON에 적힌 그대로 생성)
+                const badgesHTML = paper.badges.map(badge => 
+                    `<span class="badge badge-${badge}">${badge.replace(/-/g, ' ')}</span>`
+                ).join('');
+
+                // reverse 설정 확인 (데이터에 적힌 명령 그대로 실행)
+                const isReverse = paper.reverse === true;
+
+                // 논문 카드 HTML 생성 (현재의 세련된 레이아웃 틀 고정)
+                const paperHTML = `
+                    <article class="paper-card">
+                        <div class="paper-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; width: 100%;">
+                            <div class="paper-badges">${badgesHTML}</div>
+                            <div class="paper-meta" style="color: #4a90e2; font-weight: 500;">
+                                <span>Clin Exp Emerg Med</span> • <span>${paper.yearInfo}</span>
+                            </div>
+                        </div>
+                        
+                        <div class="paper-content" style="display: flex; flex-direction: ${isReverse ? 'row-reverse' : 'row'}; gap: 30px; align-items: flex-start;">
+                            <div class="paper-text" style="flex: 1.2;">
                                 <h3 class="paper-title">${paper.title}</h3>
                                 <p class="paper-authors">${paper.author}</p>
                                 <div class="paper-summary">
@@ -58,89 +74,21 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <p>"${paper.pearl}"</p>
                                 </div>
                                 <div class="paper-actions">
-                                    <a href="${paper.doiLink}" target="_blank" class="btn btn-primary">Full Text</a>
+                                    <button class="btn btn-primary" onclick="window.open('${paper.doiLink}', '_blank')">Full Text</button>
+                                    <button class="btn btn-secondary" onclick="window.open('${paper.doiLink}', '_blank')">View PDF</button>
                                 </div>
                             </div>
-                            <div class="paper-visual">
-                                <img src="${paper.image}" alt="${paper.title}" class="paper-image">
-                                <br>
-                                <p class="visual-caption">${paper.caption}</p>
+                            <div class="paper-visual" style="flex: 0.8; text-align: center;">
+                                <img src="${paper.image}" alt="${paper.title}" class="paper-image" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                                <p class="visual-caption" style="margin-top: 10px; font-style: italic; color: #666;">${paper.caption}</p>
                             </div>
-                        </article>
-                    `;
-                    container.insertAdjacentHTML('beforeend', paperHTML);
-                });
-            }
-        })
-        .catch(error => console.error('Error loading webzine data:', error));
-
-    // --- [추가 로직] JSON 데이터 로딩 및 자동 렌더링 시작 ---
-    fetch('data.json')
-        .then(response => response.json())
-        .then(data => {
-            // 호수 정보 및 에디터 노트 업데이트
-            if (data.issueInfo) {
-                document.querySelector('.issue-number').textContent = `${data.issueInfo.vol} | ${data.issueInfo.issue}`;
-                document.querySelector('.issue-date').textContent = data.issueInfo.date;
-                const noteElement = document.getElementById('editors-note-text');
-                if (noteElement && data.issueInfo.editorsNote) {
-                    noteElement.textContent = data.issueInfo.editorsNote;
-                }
-            }
-
-            // 논문 리스트 생성
-            const container = document.getElementById('papers-container');
-            if (container && data.papers) {
-                container.innerHTML = ''; // 초기화
-                data.papers.forEach(paper => {
-                    const paperHTML = `
-                        <article class="paper-card">
-                            <div class="paper-header">
-                                <div class="badges">
-                                    ${paper.badges.map(b => `<span class="badge badge-${b}">${formatBadgeText(b)}</span>`).join('')}
-                                </div>
-                                <div class="paper-meta">
-                                    <span class="journal-name">Clin Exp Emerg Med</span>
-                                    <span class="separator">•</span>
-                                    <span class="year">${paper.yearInfo}</span>
-                                </div>
-                            </div>
-                            <div class="paper-content ${paper.reverse ? 'reverse' : ''}">
-                                <div class="paper-text">
-                                    <h3 class="paper-title">${paper.title}</h3>
-                                    <p class="paper-authors">${paper.author}</p>
-                                    <div class="paper-summary">
-                                        <h4>Abstract</h4>
-                                        <p>${paper.abstract}</p>
-                                    </div>
-                                    <div class="pearl-box">
-                                        <span class="pearl-label">PEARL</span>
-                                        <p>"${paper.pearl}"</p>
-                                    </div>
-                                    <div class="paper-actions">
-                                        <button class="btn btn-primary" onclick="window.open('${paper.doiLink}', '_blank')">Full Text</button>
-                                        <button class="btn btn-secondary" onclick="window.open('${paper.doiLink}', '_blank')">View PDF</button>
-                                    </div>
-                                </div>
-                                <div class="paper-visual">
-                                    <img src="${paper.image}" alt="${paper.title}" class="paper-image">
-                                    <br> <p class="visual-caption">${paper.caption}</p>
-                                </div>
-                            </div>
-                        </article>`;
-                    container.innerHTML += paperHTML;
-                });
-                
-                // 데이터가 생성된 후 애니메이션 효과(Observer) 적용
-                setupAnimations();
-            }
-        })
-        .catch(err => console.error('JSON 로딩 실패:', err));
-
-    function formatBadgeText(slug) {
-        return slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+                        </div>
+                    </article>
+                `;
+                container.insertAdjacentHTML('beforeend', paperHTML);
+            });
+        }
     }
-    // --- [추가 로직 끝] ---
     
     // Add smooth scrolling to all links
     const links = document.querySelectorAll('a[href^="#"]');
