@@ -3,6 +3,74 @@
 // Smooth scroll functionality
 document.addEventListener('DOMContentLoaded', function() {
     console.log('CEEM Webzine loaded successfully');
+
+    // --- [추가 로직] JSON 데이터 로딩 및 자동 렌더링 시작 ---
+    fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+            // 호수 정보 및 에디터 노트 업데이트
+            if (data.issueInfo) {
+                document.querySelector('.issue-number').textContent = `${data.issueInfo.vol} | ${data.issueInfo.issue}`;
+                document.querySelector('.issue-date').textContent = data.issueInfo.date;
+                const noteElement = document.getElementById('editors-note-text');
+                if (noteElement && data.issueInfo.editorsNote) {
+                    noteElement.textContent = data.issueInfo.editorsNote;
+                }
+            }
+
+            // 논문 리스트 생성
+            const container = document.getElementById('papers-container');
+            if (container && data.papers) {
+                container.innerHTML = ''; // 초기화
+                data.papers.forEach(paper => {
+                    const paperHTML = `
+                        <article class="paper-card">
+                            <div class="paper-header">
+                                <div class="badges">
+                                    ${paper.badges.map(b => `<span class="badge badge-${b}">${formatBadgeText(b)}</span>`).join('')}
+                                </div>
+                                <div class="paper-meta">
+                                    <span class="journal-name">Clin Exp Emerg Med</span>
+                                    <span class="separator">•</span>
+                                    <span class="year">${paper.yearInfo}</span>
+                                </div>
+                            </div>
+                            <div class="paper-content ${paper.reverse ? 'reverse' : ''}">
+                                <div class="paper-text">
+                                    <h3 class="paper-title">${paper.title}</h3>
+                                    <p class="paper-authors">${paper.author}</p>
+                                    <div class="paper-summary">
+                                        <h4>Abstract</h4>
+                                        <p>${paper.abstract}</p>
+                                    </div>
+                                    <div class="pearl-box">
+                                        <span class="pearl-label">PEARL</span>
+                                        <p>"${paper.pearl}"</p>
+                                    </div>
+                                    <div class="paper-actions">
+                                        <button class="btn btn-primary" onclick="window.open('${paper.doiLink}', '_blank')">Full Text</button>
+                                        <button class="btn btn-secondary" onclick="window.open('${paper.doiLink}', '_blank')">View PDF</button>
+                                    </div>
+                                </div>
+                                <div class="paper-visual">
+                                    <img src="${paper.image}" alt="${paper.title}" class="paper-image">
+                                    <p class="visual-caption">${paper.caption}</p>
+                                </div>
+                            </div>
+                        </article>`;
+                    container.innerHTML += paperHTML;
+                });
+                
+                // 데이터가 생성된 후 애니메이션 효과(Observer) 적용
+                setupAnimations();
+            }
+        })
+        .catch(err => console.error('JSON 로딩 실패:', err));
+
+    function formatBadgeText(slug) {
+        return slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    }
+    // --- [추가 로직 끝] ---
     
     // Add smooth scrolling to all links
     const links = document.querySelectorAll('a[href^="#"]');
