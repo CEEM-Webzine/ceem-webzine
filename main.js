@@ -4,19 +4,18 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('CEEM Webzine loaded successfully');
 
-    // 1. 주소창에서 파라미터를 읽어 호출할 파일 결정
+// 1. [지도] 주소창에서 파라미터를 읽어 호출할 파일을 결정
     const urlParams = new URLSearchParams(window.location.search);
     const selectedIssue = urlParams.get('issue');
     const dataFile = selectedIssue ? `archives/${selectedIssue}.json` : 'data.json';
 
-    // 2. 결정된 파일(dataFile) 로드 시작
+    // 2. [실행] 결정된 파일(dataFile) 로드 시작
     fetch(dataFile)
-        .then(response => {
-            if (!response.ok) throw new Error('파일을 찾을 수 없습니다.');
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
-            // [A] 호수 정보 및 에디터 노트 업데이트
+            
+            // --- [선생님의 기존 코드 시작] ---
+            // 호수 정보 및 에디터 노트 업데이트
             if (data.issueInfo) {
                 document.querySelector('.issue-number').textContent = `${data.issueInfo.vol} | ${data.issueInfo.issue}`;
                 document.querySelector('.issue-date').textContent = data.issueInfo.date;
@@ -25,19 +24,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     noteElement.textContent = data.issueInfo.editorsNote;
                 }
             }
+            // --- [선생님의 기존 코드 끝] ---
 
-            // [B] 논문 리스트 렌더링 (그림과 내용 전체 호출)
+            // 3. [추가 로직] 논문 전체(저자, 그림 포함)를 그리는 부분
+            // 📍 이 부분이 dataInfo 업데이트 직후, 그리고 .then(data => { ... }) 안쪽에 있어야 합니다.
             const container = document.getElementById('papers-container');
             if (container && data.papers) {
-                container.innerHTML = ''; // 기존 내용을 지우고 새로 채움
+                container.innerHTML = ''; // 이전 내용을 비웁니다.
                 
                 data.papers.forEach(paper => {
-                    // 배지 생성 로직
-                    const badgesHTML = paper.badges.map(badge => 
-                        `<span class="badge badge-${badge}">${badge.replace(/-/g, ' ')}</span>`
+                    const badgesHTML = paper.badges.map(b => 
+                        `<span class="badge badge-${b}">${b.replace(/-/g, ' ')}</span>`
                     ).join('');
 
-                    // 논문 카드 구성 (이미지 포함)
                     const paperHTML = `
                         <article class="paper-card">
                             <div class="paper-text">
@@ -45,31 +44,24 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <p class="paper-year">${paper.yearInfo}</p>
                                 <h3 class="paper-title">${paper.title}</h3>
                                 <p class="paper-authors">${paper.author}</p>
-                                <div class="paper-summary">
-                                    <h4>Abstract</h4>
-                                    <p>${paper.abstract}</p>
-                                </div>
-                                <div class="pearl-box">
-                                    <span class="pearl-label">PEARL</span>
-                                    <p>"${paper.pearl}"</p>
-                                </div>
-                                <div class="paper-actions">
-                                    <a href="${paper.doiLink}" target="_blank" class="btn btn-primary">Full Text</a>
-                                </div>
+                                <div class="paper-summary"><h4>Abstract</h4><p>${paper.abstract}</p></div>
+                                <div class="pearl-box"><span class="pearl-label">PEARL</span><p>"${paper.pearl}"</p></div>
+                                <div class="paper-actions"><a href="${paper.doiLink}" target="_blank" class="btn btn-primary">Full Text</a></div>
                             </div>
                             <div class="paper-visual">
-                                <img src="${paper.image}" alt="${paper.title}" class="paper-image">
-                                <br>
+                                <img src="${paper.image}" class="paper-image"><br>
                                 <p class="visual-caption">${paper.caption}</p>
                             </div>
-                        </article>
-                    `;
+                        </article>`;
                     container.insertAdjacentHTML('beforeend', paperHTML);
                 });
             }
-        })
-        .catch(error => console.error('Error:', error));
-});
+            // 📍 여기까지가 데이터를 처리하는 끝 지점입니다.
+
+        }) // fetch의 .then 블록 닫기
+        .catch(error => console.error('Error loading data:', error));
+
+}); //
 
     // --- [추가 로직] JSON 데이터 로딩 및 자동 렌더링 시작 ---
     fetch('data.json')
