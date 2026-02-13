@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                                 <div class="paper-visual">
                                     <img src="${paper.image}" alt="${paper.title}" class="paper-image">
-                                    <br> <p class="visual-caption">${paper.caption}</p>
+                                    <br><br> <p class="visual-caption">${paper.caption}</p>
                                 </div>
                             </div>
                         </article>`;
