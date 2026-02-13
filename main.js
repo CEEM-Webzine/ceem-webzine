@@ -14,7 +14,18 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('불러올 파일 경로:', dataFile); // 브라우저 콘솔(F12)에서 확인용
 
     function formatBadgeText(slug) {
-        return slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+        const customLabels = {
+            'editor': "Editor's Choice",
+            'ems': "EMS",
+            'digital-health': "Digital health & Informatics",
+            'review': "Review article",
+            'case': "Case report"
+        };
+        if (customLabels[slug]) return customLabels[slug];
+        // 첫 단어만 대문자, 나머지는 소문자
+        const words = slug.split('-').map(word => word.toLowerCase());
+        words[0] = words[0].charAt(0).toUpperCase() + words[0].slice(1);
+        return words.join(' ');
     }
 
     // 3. 단일 fetch로 통합 - dataFile 변수를 사용하여 현재호/과거호 모두 처리합니다.
@@ -243,3 +254,4 @@ window.CEEM = {
 
 console.log('%c CEEM Webzine v1.0.0 ', 'background: #1A2A6C; color: white; padding: 5px 10px; border-radius: 3px;');
 console.log('Built with ❤️ for Clinical Excellence in Emergency Medicine');
+
