@@ -4,7 +4,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('CEEM Webzine loaded successfully');
 
-// 1. [체크] 주소창에 ?issue=값이 있는지 먼저 확인합니다.
+    // 1. [체크] 주소창에 ?issue=값이 있는지 먼저 확인합니다.
     const urlParams = new URLSearchParams(window.location.search);
     const selectedIssue = urlParams.get('issue');
     
@@ -13,8 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('불러올 파일 경로:', dataFile); // 브라우저 콘솔(F12)에서 확인용
 
-    // 3. [중요] 반드시 아래처럼 fetch(dataFile) 변수를 넣어야 합니다.
-    fetch(dataFile) 
+    function formatBadgeText(slug) {
+        return slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    }
+
+    // 3. 단일 fetch로 통합 - dataFile 변수를 사용하여 현재호/과거호 모두 처리합니다.
+    fetch(dataFile)
         .then(response => {
             if (!response.ok) throw new Error('파일을 찾을 수 없습니다.');
             return response.json();
@@ -30,65 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
 
-            // [B] 논문 리스트 업데이트 (이 부분이 추가되었습니다)
-            const container = document.getElementById('papers-container');
-            if (container && data.papers) {
-                container.innerHTML = ''; // 기존 내용을 비웁니다.
-                
-                data.papers.forEach(paper => {
-                    // 배지 HTML 생성
-                    const badgesHTML = paper.badges.map(badge => 
-                        `<span class="badge badge-${badge}">${badge.replace(/-/g, ' ')}</span>`
-                    ).join('');
-
-                    // 논문 카드 HTML 생성
-                    const paperHTML = `
-                        <article class="paper-card">
-                            <div class="paper-text">
-                                <div class="paper-badges">${badgesHTML}</div>
-                                <p class="paper-year">${paper.yearInfo}</p>
-                                <h3 class="paper-title">${paper.title}</h3>
-                                <p class="paper-authors">${paper.author}</p>
-                                <div class="paper-summary">
-                                    <h4>Abstract</h4>
-                                    <p>${paper.abstract}</p>
-                                </div>
-                                <div class="pearl-box">
-                                    <span class="pearl-label">PEARL</span>
-                                    <p>"${paper.pearl}"</p>
-                                </div>
-                                <div class="paper-actions">
-                                    <a href="${paper.doiLink}" target="_blank" class="btn btn-primary">Full Text</a>
-                                </div>
-                            </div>
-                            <div class="paper-visual">
-                                <img src="${paper.image}" alt="${paper.title}" class="paper-image">
-                                <br>
-                                <p class="visual-caption">${paper.caption}</p>
-                            </div>
-                        </article>
-                    `;
-                    container.insertAdjacentHTML('beforeend', paperHTML);
-                });
-            }
-        })
-        .catch(error => console.error('Error loading webzine data:', error));
-
-    // --- [추가 로직] JSON 데이터 로딩 및 자동 렌더링 시작 ---
-    fetch('data.json')
-        .then(response => response.json())
-        .then(data => {
-            // 호수 정보 및 에디터 노트 업데이트
-            if (data.issueInfo) {
-                document.querySelector('.issue-number').textContent = `${data.issueInfo.vol} | ${data.issueInfo.issue}`;
-                document.querySelector('.issue-date').textContent = data.issueInfo.date;
-                const noteElement = document.getElementById('editors-note-text');
-                if (noteElement && data.issueInfo.editorsNote) {
-                    noteElement.textContent = data.issueInfo.editorsNote;
-                }
-            }
-
-            // 논문 리스트 생성
+            // [B] 논문 리스트 생성
             const container = document.getElementById('papers-container');
             if (container && data.papers) {
                 container.innerHTML = ''; // 초기화
@@ -130,18 +76,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         </article>`;
                     container.innerHTML += paperHTML;
                 });
-                
+
                 // 데이터가 생성된 후 애니메이션 효과(Observer) 적용
                 setupAnimations();
             }
         })
-        .catch(err => console.error('JSON 로딩 실패:', err));
+        .catch(error => console.error('Error loading webzine data:', error));
 
-    function formatBadgeText(slug) {
-        return slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-    }
-    // --- [추가 로직 끝] ---
-    
     // Add smooth scrolling to all links
     const links = document.querySelectorAll('a[href^="#"]');
     links.forEach(link => {
@@ -170,30 +111,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
-    // Add animation on scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-    
-    // Observe all paper cards
-    const paperCards = document.querySelectorAll('.paper-card');
-    paperCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
-    });
     
     // Image placeholder click handler (for future image upload functionality)
     const imagePlaceholders = document.querySelectorAll('.image-placeholder');
@@ -281,6 +198,32 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// 애니메이션 설정 함수 - fetch 완료 후 동적으로 생성된 카드에 적용
+function setupAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observe all paper cards
+    const paperCards = document.querySelectorAll('.paper-card');
+    paperCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
+    });
+}
+
 // Email validation helper
 function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -300,4 +243,3 @@ window.CEEM = {
 
 console.log('%c CEEM Webzine v1.0.0 ', 'background: #1A2A6C; color: white; padding: 5px 10px; border-radius: 3px;');
 console.log('Built with ❤️ for Clinical Excellence in Emergency Medicine');
-
