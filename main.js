@@ -4,15 +4,17 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('CEEM Webzine loaded successfully');
 
-    // 1. 주소창에서 ?issue=날짜 파라미터를 읽어옵니다.
+// 1. [체크] 주소창에 ?issue=값이 있는지 먼저 확인합니다.
     const urlParams = new URLSearchParams(window.location.search);
     const selectedIssue = urlParams.get('issue');
-
-    // 2. 날짜가 있으면 archives 폴더에서, 없으면 최상위 data.json을 불러옵니다.
+    
+    // 2. [결정] 값이 있으면 archives 폴더를 보고, 없으면 기본 data.json을 봅니다.
     const dataFile = selectedIssue ? `archives/${selectedIssue}.json` : 'data.json';
+    
+    console.log('불러올 파일 경로:', dataFile); // 브라우저 콘솔(F12)에서 확인용
 
-    // 3. 결정된 파일명(dataFile)으로 데이터를 불러옵니다.
-    fetch(dataFile)
+    // 3. [중요] 반드시 아래처럼 fetch(dataFile) 변수를 넣어야 합니다.
+    fetch(dataFile) 
         .then(response => {
             if (!response.ok) throw new Error('파일을 찾을 수 없습니다.');
             return response.json();
