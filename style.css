@@ -34,6 +34,7 @@
     --badge-brief-review: #14B8A6;      /* Brief Review (틸) */
     --badge-correspondence: #6366F1;    /* Correspondence (인디고) */
     --badge-commentary: #8B5CF6;        /* Commentary (바이올렛) */
+    --badge-editorial: #0F766E;         /* Editorial (딥 티일) */
     
     /* Category 배지 */
     --badge-airway: #0284C7;            /* Airway (스카이 블루) */
@@ -321,6 +322,11 @@ button {
 
 .badge-commentary {
     background: var(--badge-commentary);
+    color: white;
+}
+
+.badge-editorial {
+    background: var(--badge-editorial);
     color: white;
 }
 
