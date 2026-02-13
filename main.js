@@ -4,6 +4,73 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('CEEM Webzine loaded successfully');
 
+    // 1. 주소창에서 파라미터를 읽어 호출할 파일 결정
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedIssue = urlParams.get('issue');
+    const dataFile = selectedIssue ? `archives/${selectedIssue}.json` : 'data.json';
+
+    // 2. 결정된 파일(dataFile) 로드 시작
+    fetch(dataFile)
+        .then(response => {
+            if (!response.ok) throw new Error('파일을 찾을 수 없습니다.');
+            return response.json();
+        })
+        .then(data => {
+            // [A] 호수 정보 및 에디터 노트 업데이트
+            if (data.issueInfo) {
+                document.querySelector('.issue-number').textContent = `${data.issueInfo.vol} | ${data.issueInfo.issue}`;
+                document.querySelector('.issue-date').textContent = data.issueInfo.date;
+                const noteElement = document.getElementById('editors-note-text');
+                if (noteElement && data.issueInfo.editorsNote) {
+                    noteElement.textContent = data.issueInfo.editorsNote;
+                }
+            }
+
+            // [B] 논문 리스트 렌더링 (그림과 내용 전체 호출)
+            const container = document.getElementById('papers-container');
+            if (container && data.papers) {
+                container.innerHTML = ''; // 기존 내용을 지우고 새로 채움
+                
+                data.papers.forEach(paper => {
+                    // 배지 생성 로직
+                    const badgesHTML = paper.badges.map(badge => 
+                        `<span class="badge badge-${badge}">${badge.replace(/-/g, ' ')}</span>`
+                    ).join('');
+
+                    // 논문 카드 구성 (이미지 포함)
+                    const paperHTML = `
+                        <article class="paper-card">
+                            <div class="paper-text">
+                                <div class="paper-badges">${badgesHTML}</div>
+                                <p class="paper-year">${paper.yearInfo}</p>
+                                <h3 class="paper-title">${paper.title}</h3>
+                                <p class="paper-authors">${paper.author}</p>
+                                <div class="paper-summary">
+                                    <h4>Abstract</h4>
+                                    <p>${paper.abstract}</p>
+                                </div>
+                                <div class="pearl-box">
+                                    <span class="pearl-label">PEARL</span>
+                                    <p>"${paper.pearl}"</p>
+                                </div>
+                                <div class="paper-actions">
+                                    <a href="${paper.doiLink}" target="_blank" class="btn btn-primary">Full Text</a>
+                                </div>
+                            </div>
+                            <div class="paper-visual">
+                                <img src="${paper.image}" alt="${paper.title}" class="paper-image">
+                                <br>
+                                <p class="visual-caption">${paper.caption}</p>
+                            </div>
+                        </article>
+                    `;
+                    container.insertAdjacentHTML('beforeend', paperHTML);
+                });
+            }
+        })
+        .catch(error => console.error('Error:', error));
+});
+
     // --- [추가 로직] JSON 데이터 로딩 및 자동 렌더링 시작 ---
     fetch('data.json')
         .then(response => response.json())
