@@ -14,7 +14,7 @@
       "author": "Seung Mok Ryoo",
       "abstract": "SOFA-2 점수 체계의 주요 업데이트 내용과 응급실 관점에서의 적용 방안을 다룹니다.",
       "pearl": "SOFA-2 점수는 응급실에서 패혈증 환자의 중증도를 신속하고 정확하게 평가하여 조기 치료 결정에 도움을 줍니다.",
-      "image": "figure1.png",
+      "image": "assets/images/figure1.png",
       "caption": "Figure: SOFA-2 점수 구성 요소",
       "doiLink": "https://doi.org/10.15441/ceem.25.285",
       "reverse": false
@@ -27,7 +27,7 @@
       "author": "Jose Luis Piñeros-Alvarez, Jose Daniel Yusty Prada, Esteban Portuguez",
       "abstract": "병원 전 단계에서 초음파 활용에 대한 포괄적 문헌 고찰입니다.",
       "pearl": "병원 전 단계에서의 초음파 검사는 신속한 진단과 치료 방향 결정에 중요한 역할을 합니다.",
-      "image": "figure1.png",
+      "image": "assets/images/figure1.png",
       "caption": "Figure: 병원 전 초음파 활용 사례",
       "doiLink": "https://doi.org/10.15441/ceem.24.374",
       "reverse": true
@@ -40,7 +40,7 @@
       "author": "Hyunjae Cha, Junhewk Kim",
       "abstract": "응급의료 환경에서 인공지능(AI) 기반 시스템의 윤리적 고려사항을 검토합니다.",
       "pearl": "응급의료에서 AI 시스템 도입 시 알고리즘의 투명성과 공정성을 보장하는 것이 중요합니다.",
-      "image": "figure1.png",
+      "image": "assets/images/figure1.png",
       "caption": "Figure: AI 윤리 프레임워크",
       "doiLink": "https://doi.org/10.15441/ceem.25.199",
       "reverse": false
