@@ -8,9 +8,9 @@
   "papers": [
     {
       "id": 1,
-      "badges": ["editor", "original-article", "critical-care"],
+      "badges": [],
       "yearInfo": "2025; 12(4): 303-305",
-      "title": "Updated Sequential Organ Failure Assessment (SOFA)-2 score: major changes and emergency department perspectives",
+      "title": "진짜 바뀌는지 확인 중 Updated Sequential Organ Failure Assessment (SOFA)-2 score: major changes and emergency department perspectives",
       "author": "Seung Mok Ryoo",
       "abstract": "SOFA-2 점수 체계의 주요 업데이트 내용과 응급실 관점에서의 적용 방안을 다룹니다.",
       "pearl": "SOFA-2 점수는 응급실에서 패혈증 환자의 중증도를 신속하고 정확하게 평가하여 조기 치료 결정에 도움을 줍니다.",
@@ -21,7 +21,7 @@
     },
     {
       "id": 2,
-      "badges": ["editor", "systematic-review", "airway"],
+      "badges": ["editor"],
       "yearInfo": "2025; 12(4): 320-330",
       "title": "Ultrasound as a tool in prehospital settings: a scoping review",
       "author": "Jose Luis Piñeros-Alvarez, Jose Daniel Yusty Prada, Esteban Portuguez",
@@ -34,11 +34,11 @@
     },
     {
       "id": 3,
-      "badges": ["editor", "guidelines", "pediatrics"],
+      "badges": ["pediatrics"],
       "yearInfo": "2025; 12(4): 306-319",
       "title": "Ethical considerations of artificial intelligence in emergency medicine",
       "author": "Hyunjae Cha, Junhewk Kim",
-      "abstract": "응급의료 환경에서 인공지능(AI) 기반 시스템의 윤리적 고려사항을 검토합니다.",
+      "abstract": " 아라라라라라라 응급의료 환경에서 인공지능(AI) 기반 시스템의 윤리적 고려사항을 검토합니다.",
       "pearl": "응급의료에서 AI 시스템 도입 시 알고리즘의 투명성과 공정성을 보장하는 것이 중요합니다.",
       "image": "assets/images/fig_202512_1.png",
       "caption": "Figure: AI 윤리 프레임워크",
