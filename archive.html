@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEEM Webzine - Archive</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        .archive-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 40px;
+        }
+        .archive-title {
+            font-size: 2.5rem;
+            color: #1A2A6C;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .year-section {
+            margin-bottom: 50px;
+        }
+        .year-title {
+            font-size: 1.8rem;
+            color: #4A90E2;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #4A90E2;
+        }
+        .issue-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .issue-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .issue-info {
+            flex: 1;
+        }
+        .issue-number {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1A2A6C;
+            margin-bottom: 8px;
+        }
+        .issue-date {
+            color: #7D7D7D;
+            font-size: 1rem;
+        }
+        .issue-link {
+            padding: 12px 30px;
+            background: #4A90E2;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .issue-link:hover {
+            background: #1A2A6C;
+            transform: scale(1.05);
+        }
+        .back-home {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .back-home a {
+            color: #4A90E2;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo-section">
+                    <img src="images/ceem-logo-perfect.png" alt="CEEM - Clinical and Experimental Emergency Medicine" class="ceem-logo">
+                    <h1 class="site-title">Webzine Archive</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Archive Content -->
+    <main class="archive-container">
+        <h1 class="archive-title">📚 Past Issues</h1>
+
+        <!-- 2025년 -->
+        <section class="year-section">
+            <h2 class="year-title">2025</h2>
+
+            <!-- Issue 4 -->
+            <div class="issue-card">
+                <div class="issue-info">
+                    <div class="issue-number">Vol. 12, Issue 4</div>
+                    <div class="issue-date">December 2025</div>
+                </div>
+                <a href="index.html" class="issue-link">View Issue</a>
+            </div>
+
+            <!-- Issue 3 (예시) -->
+            <div class="issue-card">
+                <div class="issue-info">
+                    <div class="issue-number">Vol. 12, Issue 3</div>
+                    <div class="issue-date">September 2025</div>
+                </div>
+                <a href="#" class="issue-link">View Issue</a>
+            </div>
+
+            <!-- Issue 2 (예시) -->
+            <div class="issue-card">
+                <div class="issue-info">
+                    <div class="issue-number">Vol. 12, Issue 2</div>
+                    <div class="issue-date">June 2025</div>
+                </div>
+                <a href="#" class="issue-link">View Issue</a>
+            </div>
+
+            <!-- Issue 1 (예시) -->
+            <div class="issue-card">
+                <div class="issue-info">
+                    <div class="issue-number">Vol. 12, Issue 1</div>
+                    <div class="issue-date">March 2025</div>
+                </div>
+                <a href="#" class="issue-link">View Issue</a>
+            </div>
+        </section>
+
+        <!-- 2024년 (예시) -->
+        <section class="year-section">
+            <h2 class="year-title">2024</h2>
+
+            <div class="issue-card">
+                <div class="issue-info">
+                    <div class="issue-number">Vol. 11, Issue 4</div>
+                    <div class="issue-date">December 2024</div>
+                </div>
+                <a href="#" class="issue-link">View Issue</a>
+            </div>
+
+            <div class="issue-card">
+                <div class="issue-info">
+                    <div class="issue-number">Vol. 11, Issue 3</div>
+                    <div class="issue-date">September 2024</div>
+                </div>
+                <a href="#" class="issue-link">View Issue</a>
+            </div>
+
+            <!-- 더 많은 호 추가 가능 -->
+        </section>
+
+        <div class="back-home">
+            <a href="index.html">← Back to Current Issue</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/ceem-logo-perfect.png" alt="CEEM" class="footer-logo-img">
+                    </div>
+                    <div class="footer-contact">
+                        <p><strong>Editorial Office</strong></p>
+                        <p>The Korean Society of Emergency Medicine</p>
+                        <p>101-3104, Brownstone Seoul, 464 Cheongpa-ro, Jung-gu, Seoul 04510, Korea</p>
+                        <p>TEL: +82-31-709-0918 | E-mail: office@ceemjournal.org</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 The Korean Society of Emergency Medicine. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

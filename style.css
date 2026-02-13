@@ -1,0 +1,885 @@
+/* ===========================
+   CEEM Webzine - Global Styles
+   =========================== */
+
+/* CSS Variables */
+:root {
+    /* Primary Colors */
+    --primary-blue: #1A2A6C;
+    --secondary-blue: #2C5F8D;
+    --accent-blue: #4A90E2;
+    --light-blue: #E8F1F8;
+    
+    /* Text Colors */
+    --text-primary: #1A1A1A;
+    --text-secondary: #7D7D7D;
+    --text-light: #A0A0A0;
+    
+    /* Background Colors */
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F5F5F5;
+    --bg-light: #FAFAFA;
+    
+    /* Border Colors */
+    --border-color: #E0E0E0;
+    --border-light: #F0F0F0;
+    
+    /* Badge Colors - 쉽게 변경 가능 */
+    --badge-editor-pick: #FF6B6B;      /* Editor's Pick 배지 (빨강) */
+    
+    /* Article Type 배지 */
+    --badge-original-article: #059669;  /* Original Article (에메랄드 그린) */
+    --badge-systematic-review: #7C3AED; /* Systematic Review (보라) */
+    --badge-guidelines: #2563EB;        /* Guidelines (진한 파란색) */
+    --badge-brief-review: #14B8A6;      /* Brief Review (틸) */
+    --badge-correspondence: #6366F1;    /* Correspondence (인디고) */
+    --badge-commentary: #8B5CF6;        /* Commentary (바이올렛) */
+    
+    /* Category 배지 */
+    --badge-airway: #0284C7;            /* Airway (스카이 블루) */
+    --badge-critical-care: #F59E0B;     /* Critical Care (앰버) */
+    --badge-education: #0891B2;         /* Education & Simulation (시안) */
+    --badge-pediatrics: #EC4899;        /* Pediatrics (핑크) */
+    --badge-public-health: #10B981;     /* Public Health (그린) */
+    --badge-resuscitation: #F97316;     /* Resuscitation (오렌지) */
+    
+    /* 기타 배지 (하위 호환성) */
+    --badge-type: #4ECDC4;             /* Article Type 배지 (청록) */
+    --badge-category: #6C63FF;         /* Category 배지 (보라) */
+    --badge-ems: #FF9500;              /* EMS 배지 (주황) */
+    --badge-review: #95E1D3;           /* Review Article (민트) */
+    --badge-original: #4ECDC4;         /* Original Article (청록) */
+    --badge-case: #95E1D3;             /* Case Report (민트) */
+    
+    /* Spacing */
+    --spacing-xs: 6px;
+    --spacing-sm: 12px;
+    --spacing-md: 18px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 40px;
+    
+    /* Typography */
+    --font-sans: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-serif: 'Merriweather', Georgia, serif;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-normal: 250ms ease;
+    --transition-slow: 400ms ease;
+}
+
+/* ===========================
+   Reset & Base Styles
+   =========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--text-primary);
+    background-color: var(--bg-light);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-fast);
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: all var(--transition-normal);
+}
+
+/* ===========================
+   Layout Components
+   =========================== */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ===========================
+   Header
+   =========================== */
+
+.header {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+    color: white;
+    padding: var(--spacing-md) 0;
+    box-shadow: var(--shadow-md);
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.ceem-logo {
+    height: 130px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-placeholder {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.site-title {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: white;
+}
+
+.issue-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--spacing-xs);
+    text-align: right;
+}
+
+.issue-number {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.issue-date {
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+/* ===========================
+   Main Content
+   =========================== */
+
+.main-content {
+    padding: var(--spacing-xl) 0;
+}
+
+.section-title {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    color: var(--primary-blue);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 3px solid var(--accent-blue);
+    display: inline-block;
+}
+
+/* ===========================
+   Editor's Note
+   =========================== */
+
+.editors-note {
+    background: var(--bg-primary);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--spacing-xl);
+    border-left: 4px solid var(--accent-blue);
+}
+
+.note-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+/* ===========================
+   Papers Section
+   =========================== */
+
+.papers-section {
+    margin-bottom: var(--spacing-xl);
+    min-height: 600px;
+}
+
+.paper-card {
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+    border: 1px solid var(--border-light);
+}
+
+.paper-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+/* Paper Header */
+.paper-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.badges {
+    display: flex;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-editor {
+    background: var(--badge-editor-pick);
+    color: white;
+}
+
+/* Article Type 배지들 */
+.badge-original-article {
+    background: var(--badge-original-article);
+    color: white;
+}
+
+.badge-systematic-review {
+    background: var(--badge-systematic-review);
+    color: white;
+}
+
+.badge-guidelines {
+    background: var(--badge-guidelines);
+    color: white;
+}
+
+.badge-brief-review {
+    background: var(--badge-brief-review);
+    color: white;
+}
+
+.badge-correspondence {
+    background: var(--badge-correspondence);
+    color: white;
+}
+
+.badge-commentary {
+    background: var(--badge-commentary);
+    color: white;
+}
+
+/* Category 배지들 */
+.badge-airway {
+    background: var(--badge-airway);
+    color: white;
+}
+
+.badge-critical-care {
+    background: var(--badge-critical-care);
+    color: white;
+}
+
+.badge-education {
+    background: var(--badge-education);
+    color: white;
+}
+
+.badge-pediatrics {
+    background: var(--badge-pediatrics);
+    color: white;
+}
+
+.badge-public-health {
+    background: var(--badge-public-health);
+    color: white;
+}
+
+.badge-resuscitation {
+    background: var(--badge-resuscitation);
+    color: white;
+}
+
+/* 기존 배지 (하위 호환성) */
+.badge-type {
+    background: var(--badge-type);
+    color: white;
+}
+
+.badge-category {
+    background: var(--badge-category);
+    color: white;
+}
+
+.badge-ems {
+    background: var(--badge-ems);
+    color: white;
+}
+
+.badge-review {
+    background: var(--badge-review);
+    color: white;
+}
+
+.badge-original {
+    background: var(--badge-original);
+    color: white;
+}
+
+.badge-case {
+    background: var(--badge-case);
+    color: white;
+}
+
+.paper-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.journal-name {
+    font-weight: 600;
+    color: var(--secondary-blue);
+}
+
+.separator {
+    color: var(--border-color);
+}
+
+/* Paper Content */
+.paper-content {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: var(--spacing-md);
+    align-items: start;
+}
+
+.paper-content.reverse {
+    grid-template-columns: 220px 1fr;
+}
+
+.paper-content.reverse .paper-text {
+    order: 2;
+}
+
+.paper-content.reverse .paper-visual {
+    order: 1;
+}
+
+.paper-text {
+    flex: 1;
+}
+
+.paper-title {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    color: var(--primary-blue);
+    line-height: 1.3;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 600;
+}
+
+.paper-authors {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: var(--spacing-xs);
+    font-style: italic;
+}
+
+.paper-summary {
+    margin-bottom: var(--spacing-sm);
+}
+
+.paper-summary h4 {
+    font-size: 0.95rem;
+    color: var(--secondary-blue);
+    margin-bottom: var(--spacing-xs);
+    font-weight: 600;
+}
+
+.paper-summary p {
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-size: 0.88rem;
+}
+
+/* Pearl Box */
+.pearl-box {
+    background: var(--light-blue);
+    border-left: 4px solid var(--accent-blue);
+    padding: 10px var(--spacing-sm);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.pearl-label {
+    display: inline-block;
+    background: var(--accent-blue);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.pearl-box p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* Paper Actions */
+.paper-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+    margin-top: var(--spacing-sm);
+}
+
+.btn {
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.8rem;
+    transition: all var(--transition-normal);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.btn-primary {
+    background: var(--primary-blue);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--secondary-blue);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background: var(--bg-primary);
+    border-color: var(--secondary-blue);
+    color: var(--secondary-blue);
+}
+
+/* Paper Visual */
+.paper-visual {
+    flex-shrink: 0;
+}
+
+/* 실제 이미지 스타일 */
+.paper-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    object-fit: cover;
+    transition: all var(--transition-normal);
+}
+
+.paper-image:hover {
+    box-shadow: var(--shadow-md);
+    transform: scale(1.02);
+}
+
+.image-placeholder {
+    width: 100%;
+    aspect-ratio: 1;
+    background: var(--bg-secondary);
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-sm);
+    transition: all var(--transition-normal);
+}
+
+.image-placeholder:hover {
+    border-color: var(--accent-blue);
+    background: var(--light-blue);
+}
+
+.placeholder-content {
+    text-align: center;
+    color: var(--text-light);
+}
+
+.placeholder-content svg {
+    margin: 0 auto var(--spacing-xs);
+    opacity: 0.5;
+}
+
+.placeholder-content p {
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.visual-caption {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-align: center;
+    font-style: italic;
+}
+
+/* ===========================
+   Subscribe Section
+   =========================== */
+
+.subscribe-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.subscribe-box {
+    background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--accent-blue) 100%);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    color: white;
+    box-shadow: var(--shadow-lg);
+}
+
+.subscribe-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 700;
+}
+
+.subscribe-box p {
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-sm);
+    opacity: 0.95;
+}
+
+.btn-subscribe {
+    background: white;
+    color: var(--secondary-blue);
+    padding: 14px 40px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: var(--shadow-md);
+}
+
+.btn-subscribe:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ===========================
+   Footer
+   =========================== */
+
+.footer {
+    background: var(--primary-blue);
+    color: white;
+    padding: var(--spacing-md) 0 var(--spacing-sm);
+    margin-top: var(--spacing-xl);
+}
+
+.footer-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.footer-section h4 {
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.footer-section p {
+    opacity: 0.85;
+    font-size: 0.75rem;
+}
+
+.footer-logo-img {
+    height: 110px;
+    width: auto;
+    margin: 0 auto 10px;
+    object-fit: contain;
+    display: block;
+}
+
+.footer-tagline {
+    font-size: 0.75rem;
+    font-style: italic;
+    opacity: 0.75;
+    margin-top: 4px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-contact {
+    margin-top: 8px;
+    line-height: 1.3;
+}
+
+.footer-contact p {
+    margin-bottom: 3px;
+    opacity: 0.85;
+    font-size: 0.75rem;
+}
+
+.footer-contact p:last-child {
+    margin-top: 5px;
+}
+
+.footer-contact p strong {
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.social-links {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: var(--spacing-xs);
+}
+
+.social-link {
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    transition: all var(--transition-normal);
+}
+
+.social-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 8px;
+    margin-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    opacity: 0.7;
+    font-size: 0.7rem;
+}
+
+/* ===========================
+   Responsive Design
+   =========================== */
+
+@media (max-width: 968px) {
+    .header-right {
+        gap: var(--spacing-md);
+    }
+    
+    .site-title {
+        font-size: 1.5rem;
+        padding-right: var(--spacing-md);
+    }
+    
+    .paper-content,
+    .paper-content.reverse {
+        grid-template-columns: 1fr;
+    }
+    
+    .paper-content.reverse .paper-text,
+    .paper-content.reverse .paper-visual {
+        order: unset;
+    }
+    
+    .paper-visual {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --spacing-lg: 24px;
+        --spacing-xl: 32px;
+        --spacing-xxl: 48px;
+    }
+    
+    .header {
+        padding: var(--spacing-md) 0;
+    }
+    
+    .header-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+    }
+    
+    .header-right {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+    
+    .site-title {
+        border-right: none;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+        padding-right: 0;
+        padding-bottom: var(--spacing-xs);
+        font-size: 1.3rem;
+    }
+    
+    .issue-info {
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    .ceem-logo {
+        height: 50px;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .paper-title {
+        font-size: 1.2rem;
+    }
+    
+    .paper-card {
+        padding: var(--spacing-md);
+    }
+    
+    .subscribe-box {
+        padding: var(--spacing-lg);
+    }
+    
+    .subscribe-box h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .badges {
+        width: 100%;
+    }
+    
+    .paper-meta {
+        font-size: 0.8rem;
+    }
+    
+    .paper-actions {
+        width: 100%;
+    }
+    
+    .btn {
+        flex: 1;
+        justify-content: center;
+        min-width: 120px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+}
+
+/* ===========================
+   Print Styles
+   =========================== */
+
+@media print {
+    .header,
+    .subscribe-section,
+    .footer {
+        break-inside: avoid;
+    }
+    
+    .paper-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid var(--border-color);
+    }
+    
+    .btn {
+        display: none;
+    }
+    
+    body {
+        background: white;
+    }
+    
+    .image-placeholder {
+        border-style: solid;
+    }
+}
