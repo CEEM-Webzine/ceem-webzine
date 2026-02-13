@@ -14,7 +14,7 @@
       "author": "Seung Mok Ryoo",
       "abstract": "SOFA-2 점수 체계의 주요 업데이트 내용과 응급실 관점에서의 적용 방안을 다룹니다. 새로운 평가 기준은 신경계, 호흡기, 심혈관, 간, 신장, 응고 시스템의 장기 부전을 보다 정확하게 평가합니다.",
       "pearl": "SOFA-2 점수는 응급실에서 패혈증 환자의 중증도를 신속하고 정확하게 평가하여 조기 치료 결정에 도움을 줍니다.",
-      "image": "figure1.png",
+      "image": "assets/images/figure1.png",
       "caption": "Figure: SOFA-2 점수 구성 요소",
       "doiLink": "https://doi.org/10.15441/ceem.25.285",
       "reverse": false
@@ -27,7 +27,7 @@
       "author": "Jose Luis Piñeros-Alvarez, Jose Daniel Yusty Prada, Esteban Portuguez",
       "abstract": "병원 전 단계에서 초음파 활용에 대한 포괄적 문헌 고찰입니다. 외상, 심정지, 호흡곤란 등 응급 상황에서 휴대용 초음파의 진단적 가치와 임상적 유용성을 분석합니다.",
       "pearl": "병원 전 단계에서의 초음파 검사는 신속한 진단과 치료 방향 결정에 중요한 역할을 하며, 적절한 교육을 통해 효과적으로 활용될 수 있습니다.",
-      "image": "figure1.png",
+      "image": "assets/images/figure1.png",
       "caption": "Figure: 병원 전 초음파 활용 사례",
       "doiLink": "https://doi.org/10.15441/ceem.24.374",
       "reverse": true
@@ -40,7 +40,7 @@
       "author": "Hyunjae Cha, Junhewk Kim",
       "abstract": "응급의료 환경에서 인공지능(AI) 기반 트리아지 및 자원 배분 시스템의 윤리적 고려사항을 체계적으로 검토한 스코핑 리뷰입니다.",
       "pearl": "응급의료에서 AI 시스템 도입 시알고리즘의 투명성과 공정성을 보장하고, 의료진의 최종 의사결정 권한을 유지하는 것이 중요합니다.",
-      "image": "figure1.png",
+      "image": "assets/images/figure1.png",
       "caption": "Figure: AI 윤리 프레임워크",
       "doiLink": "https://doi.org/10.15441/ceem.25.199",
       "reverse": false
