@@ -1,4 +1,4 @@
-# CEEM-webzine 관리 가이드
+# CEEM-webzine 관리 가이드 ver.1
 
 이 문서는 CEEM Webzine GitHub 저장소의 관리자를 위한 안내서입니다.
 코딩을 전혀 몰라도 이 문서만 따라 하면 웹진을 발간할 수 있습니다.
