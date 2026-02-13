@@ -1,4 +1,4 @@
-# ceem-webzine
+# CEEM-webzine
 
 CEEM Webzine 관리 가이드
 
