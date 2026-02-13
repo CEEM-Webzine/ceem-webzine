@@ -25,10 +25,10 @@
     --border-light: #F0F0F0;
     
     /* Badge Colors - 쉽게 변경 가능 */
-    --badge-editor-pick: #FF6B6B;      /* Editor's Pick 배지 (빨강) */
+    --badge-editor-pick: #EC1D8D;      /* Editor's Choice 배지 (핫핑크) */
     
     /* Article Type 배지 */
-    --badge-original-article: #059669;  /* Original Article (에메랄드 그린) */
+    --badge-original-article: #16A34A;  /* Original Article (그린) */
     --badge-systematic-review: #7C3AED; /* Systematic Review (보라) */
     --badge-guidelines: #2563EB;        /* Guidelines (진한 파란색) */
     --badge-brief-review: #14B8A6;      /* Brief Review (틸) */
@@ -37,19 +37,23 @@
     
     /* Category 배지 */
     --badge-airway: #0284C7;            /* Airway (스카이 블루) */
-    --badge-critical-care: #F59E0B;     /* Critical Care (앰버) */
+    --badge-critical-care: #FBBF24;     /* Critical Care (선명한 황금) */
     --badge-education: #0891B2;         /* Education & Simulation (시안) */
-    --badge-pediatrics: #EC4899;        /* Pediatrics (핑크) */
-    --badge-public-health: #10B981;     /* Public Health (그린) */
-    --badge-resuscitation: #F97316;     /* Resuscitation (오렌지) */
+    --badge-pediatrics: #E11D6A;        /* Pediatrics (딥로즈) */
+    --badge-public-health: #059669;     /* Public Health (에메랄드 그린) */
+    --badge-resuscitation: #EA580C;     /* Resuscitation (선명한 오렌지) */
+    --badge-trauma: #9F1239;            /* Trauma (버건디) */
+    --badge-toxicology: #65A30D;        /* Toxicology (올리브 그린) */
+    --badge-imaging: #475569;           /* Imaging (슬레이트) */
+    --badge-digital-health: #0EA5E9;    /* Digital Health & Informatics (하늘) */
     
     /* 기타 배지 (하위 호환성) */
     --badge-type: #4ECDC4;             /* Article Type 배지 (청록) */
     --badge-category: #6C63FF;         /* Category 배지 (보라) */
-    --badge-ems: #FF9500;              /* EMS 배지 (주황) */
-    --badge-review: #95E1D3;           /* Review Article (민트) */
+    --badge-ems: #F59E0B;              /* EMS 배지 (앰버 주황) */
+    --badge-review: #6B7280;           /* Review Article (웜그레이) */
     --badge-original: #4ECDC4;         /* Original Article (청록) */
-    --badge-case: #95E1D3;             /* Case Report (민트) */
+    --badge-case: #64748B;             /* Case Report (블루그레이) */
     
     /* Spacing */
     --spacing-xs: 6px;
@@ -348,6 +352,26 @@ button {
 
 .badge-resuscitation {
     background: var(--badge-resuscitation);
+    color: white;
+}
+
+.badge-trauma {
+    background: var(--badge-trauma);
+    color: white;
+}
+
+.badge-toxicology {
+    background: var(--badge-toxicology);
+    color: white;
+}
+
+.badge-imaging {
+    background: var(--badge-imaging);
+    color: white;
+}
+
+.badge-digital-health {
+    background: var(--badge-digital-health);
     color: white;
 }
 
