@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     ${paper.badges.map(b => `<span class="badge badge-${b}">${formatBadgeText(b)}</span>`).join('')}
                                 </div>
                                 <div class="paper-meta">
-                                    <span class="journal-name">Clin Exp Emerg Med</span>
+                                    <span class="journal-name">${paper.journal || 'Clin Exp Emerg Med'}</span>
                                     <span class="separator">•</span>
                                     <span class="year">${paper.yearInfo}</span>
                                 </div>
@@ -73,6 +73,10 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <div class="pearl-box">
                                         <span class="pearl-label">PEARL</span>
                                         <p>"${paper.pearl}"</p>
+                                    </div>
+                                    <div class="citation-tip">
+                                        <span class="citation-tip-label">💬 Citation Tip</span>
+                                        <p>${paper.author}. ${paper.title}. <em>${paper.journal || 'Clin Exp Emerg Med'}</em>. ${paper.yearInfo}. <a href="${paper.doiLink}" target="_blank">${paper.doiLink}</a></p>
                                     </div>
                                     <div class="paper-actions">
                                         <button class="btn btn-primary" onclick="window.open('${paper.doiLink}', '_blank')">Full Text</button>
@@ -254,4 +258,5 @@ window.CEEM = {
 
 console.log('%c CEEM Webzine v1.0.0 ', 'background: #1A2A6C; color: white; padding: 5px 10px; border-radius: 3px;');
 console.log('Built with ❤️ for Clinical Excellence in Emergency Medicine');
+
 
