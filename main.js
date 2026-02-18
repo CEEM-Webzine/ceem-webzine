@@ -93,15 +93,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Citation Tip 섹션 생성
                 const citationSection = document.getElementById('citation-section');
-                if (citationSection) {
+                if (citationSection && data.citationTip) {
                     const citationContainer = citationSection.querySelector('.citation-list');
                     if (citationContainer) {
-                        citationContainer.innerHTML = data.papers.map((paper, idx) =>
-                            `<div class="citation-item">
-                                <span class="citation-index">${idx + 1}.</span>
-                                <p>${paper.author}. ${paper.title}. <em>${paper.journal || 'Clin Exp Emerg Med'}</em>. ${paper.yearInfo}. <a href="${paper.doiLink}" target="_blank">${paper.doiLink}</a></p>
-                            </div>`
-                        ).join('');
+                        citationContainer.innerHTML = `<div class="citation-box"><p>${data.citationTip}</p></div>`;
                     }
                 }
             }
