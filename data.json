@@ -23,7 +23,7 @@
     },
     {
       "id": 2,
-      "badges": ["systematic-review", "imaging"],
+      "badges": ["review", "imaging"],
       "journal": "NEJM",
       "yearInfo": "2025; 12(4): 320-330",
       "title": "Ultrasound as a tool in prehospital settings: a scoping review",
