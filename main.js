@@ -96,7 +96,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (citationSection && data.citationTip) {
                     const citationContainer = citationSection.querySelector('.citation-list');
                     if (citationContainer) {
-                        citationContainer.innerHTML = `<div class="citation-box"><p>${data.citationTip}</p></div>`;
+                        citationContainer.innerHTML = `
+                            <p class="citation-intro">CEEM 논문을 인용하실 때는 아래 형식을 따라 주세요.</p>
+                            <div class="citation-box"><p>${data.citationTip}</p></div>`;
                     }
                 }
             }
