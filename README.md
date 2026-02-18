@@ -20,8 +20,8 @@ ceem-webzine/
 │   └── images/            ← 논문 그림 이미지 저장 폴더
 │
 └── archives/              ← 과거호 JSON 파일 보관 폴더
-    ├── 2025-12.json
-    ├── 2026-01.json
+    ├── 2025-01.json
+    ├── 2025-02.json
     └── ...
 ```
 
@@ -48,16 +48,16 @@ ceem-webzine/
 ### 규칙
 
 ```
-fig_[년도][월]_[논문순서].png
+fig_[년도][Issue번호]_[논문순서].png
 ```
 
 ### 예시
 
 | 파일명 | 의미 |
 |--------|------|
-| `fig_202512_1.png` | 2025년 12월호, 첫 번째 논문 그림 |
-| `fig_202512_2.png` | 2025년 12월호, 두 번째 논문 그림 |
-| `fig_202601_1.png` | 2026년 1월호, 첫 번째 논문 그림 |
+| `fig_202512_1.png` | 2025년 12번째호, 첫 번째 논문 그림 |
+| `fig_202512_2.png` | 2025년 12번째호, 두 번째 논문 그림 |
+| `fig_202601_1.png` | 2026년 1번째호, 첫 번째 논문 그림 |
 
 > 이렇게 이름을 정해두면, 나중에 archive로 넘길 때 이미지 파일을 **그대로 두고** JSON 파일만 복사해서 이름을 바꾸면 됩니다. 이미지는 계속 `assets/images/` 폴더에 쌓아두면 됩니다.
 
@@ -91,14 +91,16 @@ fig_[년도][월]_[논문순서].png
 {
   "issueInfo": {
     "vol": "Vol. 13",
-    "issue": "No. 1",
+    "issue": "Issue 1",
     "date": "February 2026",
     "editorsNote": "이번 호 에디터 노트 내용을 여기에 씁니다."
   },
+  "citationTip": "인용 관련 안내 문구를 여기에 씁니다. ex. 2024-2026 CEEM 인용을 부탁드립니다. 웹진 젤 하단에 표시됨 (30~50자 이내)",
   "papers": [
     {
-      "badges": ["original-article"],
-      "yearInfo": "2026",
+      "badges": ["editor", "original-article"],
+      "journal": "Clin Exp Emerg Med",
+      "yearInfo": "2026; 13(1): 1-10",
       "title": "논문 제목을 여기에 입력",
       "author": "Hong GD, Kim JS, Lee HK",
       "abstract": "논문 초록 내용을 여기에 입력합니다.",
@@ -109,8 +111,9 @@ fig_[년도][월]_[논문순서].png
       "reverse": false
     },
     {
-      "badges": ["review-article"],
-      "yearInfo": "2026",
+      "badges": ["review", "imaging"],
+      "journal": "NEJM",
+      "yearInfo": "2026; 13(1): 11-20",
       "title": "두 번째 논문 제목",
       "author": "Park SH, Choi MJ",
       "abstract": "두 번째 논문 초록.",
@@ -131,8 +134,10 @@ fig_[년도][월]_[논문순서].png
 | `vol` / `issue` | 권호 정보 |
 | `date` | 발간 연월 |
 | `editorsNote` | 에디터 노트 본문 |
-| `badges` | 논문 유형 배지. `original-article`, `review-article`, `case-report` 등 |
-| `yearInfo` | 논문 출판 연도 |
+| `citationTip` | Citation Tip 섹션에 표시될 문구 (30~50자 이내 자유 텍스트) |
+| `badges` | 논문 유형 배지. `original-article`, `review`, `editor` 등 |
+| `journal` | 저널명 직접 입력 (예: `Clin Exp Emerg Med`, `NEJM`) |
+| `yearInfo` | 논문 출판 연도 및 권호 페이지 정보 |
 | `title` | 논문 제목 |
 | `author` | 저자명 |
 | `abstract` | 초록 |
@@ -201,7 +206,12 @@ fig_[년도][월]_[논문순서].png
 
 에디터 픽 + 논문 유형:
 ```json
-"badges": ["editor", "systematic-review"]
+"badges": ["editor", "original-article"]
+```
+
+에디터 픽 + 논문 유형 + 카테고리:
+```json
+"badges": ["editor", "review", "imaging"]
 ```
 
 ---
@@ -227,7 +237,7 @@ https://ceem-webzine.github.io/ceem-webzine/
 
 **② `archives/` 폴더에 새 파일을 만듭니다**
 - `archives/` 폴더 클릭 → `Add file` → `Create new file`
-- 파일 이름을 `2025-12.json` 형식으로 입력합니다 (이전 호의 년도-월)
+- 파일 이름을 `2025-01.json` 형식으로 입력합니다 (이전 호의 년도-호수, 예: 첫번째호 → `2025-01`, 12월호 → `2025-12`)
 - 복사한 내용을 붙여넣기 합니다
 - **`Commit changes`** 를 눌러 저장합니다
 
@@ -239,13 +249,14 @@ https://ceem-webzine.github.io/ceem-webzine/
 
 ## 🔗 과거 호 열람 주소
 
-과거 호는 아래와 같이 주소 끝에 `?issue=년도-월` 을 붙이면 볼 수 있습니다.
+과거 호는 아래와 같이 주소 끝에 `?issue=년도-호수` 를 붙이면 볼 수 있습니다.
 
 ```
-https://ceem-webzine.github.io/ceem-webzine/?issue=2025-12
-https://ceem-webzine.github.io/ceem-webzine/?issue=2026-01
-https://ceem-webzine.github.io/ceem-webzine/?issue=2026-02
+https://ceem-webzine.github.io/ceem-webzine/?issue=2025-01
+https://ceem-webzine.github.io/ceem-webzine/?issue=2025-02
 ```
+
+> 호수 형식: `YYYY-NN` (예: 2025년 1월호 → `2025-01`, 2025년 12월호 → `2025-12`)
 
 레이아웃은 최신호와 완전히 동일하게 표시됩니다.
 
@@ -269,9 +280,10 @@ https://ceem-webzine.github.io/ceem-webzine/?issue=2026-02
 
 | 호수 | 발간일 | 주소 |
 |------|--------|------|
-| Vol.13 No.2 | 2026년 2월 | https://ceem-webzine.github.io/ceem-webzine/?issue=2026-02 |
-| Vol.13 No.1 | 2026년 1월 | https://ceem-webzine.github.io/ceem-webzine/?issue=2026-01 |
-| Vol.12 No.12 | 2025년 12월 | https://ceem-webzine.github.io/ceem-webzine/?issue=2025-12 |
+| Vol.13 No.2 | 2026년 2월 XX일 | https://ceem-webzine.github.io/ceem-webzine/?issue=2026-02 |
+| Vol.13 No.1 | 2026년 1월 XX일 | https://ceem-webzine.github.io/ceem-webzine/?issue=2026-01 |
+| Vol.12 No.12 | 2025년 12월 XX일 | https://ceem-webzine.github.io/ceem-webzine/?issue=2025-12 |
+| Vol.12 No.1 | 2025년 1월 XX일 | https://ceem-webzine.github.io/ceem-webzine/?issue=2025-01 |
 ```
 
 > 새 호를 발간할 때마다 Wiki에 한 줄씩 추가해두면, 나중에 특정 호를 찾을 때 편리합니다.
