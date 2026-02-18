@@ -620,39 +620,63 @@ button {
     font-style: italic;
 }
 
-/* Citation Tip */
-.citation-tip {
-    background: #F0F4FF;
-    border-left: 3px solid var(--accent-blue);
-    border-radius: var(--radius-sm);
-    padding: var(--spacing-sm) var(--spacing-md);
-    margin-top: var(--spacing-sm);
+/* Citation Tip Section */
+.citation-section {
+    margin-bottom: var(--spacing-xl);
 }
 
-.citation-tip-label {
-    display: inline-block;
-    font-size: 0.75rem;
+.citation-list {
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md) var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+    border-left: 4px solid var(--accent-blue);
+}
+
+.citation-item {
+    display: flex;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.citation-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.citation-item:first-child {
+    padding-top: 0;
+}
+
+.citation-index {
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
     color: var(--accent-blue);
-    margin-bottom: 6px;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+    min-width: 18px;
 }
 
-.citation-tip p {
-    font-size: 0.82rem;
+.citation-item p {
+    font-size: 0.85rem;
     color: var(--text-secondary);
     line-height: 1.6;
     word-break: break-word;
 }
 
-.citation-tip p a {
+.citation-item p em {
+    font-style: italic;
+    color: var(--text-primary);
+}
+
+.citation-item p a {
     color: var(--accent-blue);
     text-decoration: underline;
     word-break: break-all;
 }
 
-.citation-tip p a:hover {
+.citation-item p a:hover {
     color: var(--primary-blue);
 }
 
@@ -949,4 +973,3 @@ button {
         border-style: solid;
     }
 }
-
