@@ -620,6 +620,42 @@ button {
     font-style: italic;
 }
 
+/* Citation Tip */
+.citation-tip {
+    background: #F0F4FF;
+    border-left: 3px solid var(--accent-blue);
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin-top: var(--spacing-sm);
+}
+
+.citation-tip-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--accent-blue);
+    margin-bottom: 6px;
+}
+
+.citation-tip p {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    word-break: break-word;
+}
+
+.citation-tip p a {
+    color: var(--accent-blue);
+    text-decoration: underline;
+    word-break: break-all;
+}
+
+.citation-tip p a:hover {
+    color: var(--primary-blue);
+}
+
 /* ===========================
    Subscribe Section
    =========================== */
@@ -913,3 +949,4 @@ button {
         border-style: solid;
     }
 }
+
