@@ -74,10 +74,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                         <span class="pearl-label">PEARL</span>
                                         <p>"${paper.pearl}"</p>
                                     </div>
-                                    <div class="citation-tip">
-                                        <span class="citation-tip-label">💬 Citation Tip</span>
-                                        <p>${paper.author}. ${paper.title}. <em>${paper.journal || 'Clin Exp Emerg Med'}</em>. ${paper.yearInfo}. <a href="${paper.doiLink}" target="_blank">${paper.doiLink}</a></p>
-                                    </div>
                                     <div class="paper-actions">
                                         <button class="btn btn-primary" onclick="window.open('${paper.doiLink}', '_blank')">Full Text</button>
                                         <button class="btn btn-secondary" onclick="window.open('${paper.doiLink}', '_blank')">View PDF</button>
@@ -94,6 +90,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // 데이터가 생성된 후 애니메이션 효과(Observer) 적용
                 setupAnimations();
+
+                // Citation Tip 섹션 생성
+                const citationSection = document.getElementById('citation-section');
+                if (citationSection) {
+                    const citationContainer = citationSection.querySelector('.citation-list');
+                    if (citationContainer) {
+                        citationContainer.innerHTML = data.papers.map((paper, idx) =>
+                            `<div class="citation-item">
+                                <span class="citation-index">${idx + 1}.</span>
+                                <p>${paper.author}. ${paper.title}. <em>${paper.journal || 'Clin Exp Emerg Med'}</em>. ${paper.yearInfo}. <a href="${paper.doiLink}" target="_blank">${paper.doiLink}</a></p>
+                            </div>`
+                        ).join('');
+                    }
+                }
             }
         })
         .catch(error => console.error('Error loading webzine data:', error));
@@ -258,5 +268,3 @@ window.CEEM = {
 
 console.log('%c CEEM Webzine v1.0.0 ', 'background: #1A2A6C; color: white; padding: 5px 10px; border-radius: 3px;');
 console.log('Built with ❤️ for Clinical Excellence in Emergency Medicine');
-
-
