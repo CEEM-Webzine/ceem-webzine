@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <p class="paper-authors">${paper.author}</p>
                                     <div class="paper-summary">
                                         <h4>Abstract</h4>
-                                        <p>${paper.abstract}</p>
+                                        <p>${paper.abstract.replace(/\n/g, "<br>")}</p>
                                     </div>
                                     <div class="pearl-box">
                                         <span class="pearl-label">PEARL</span>
