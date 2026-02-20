@@ -103,7 +103,7 @@ fig_[년도][Issue번호]_[논문순서].png
       "yearInfo": "2026; 13(1): 1-10",
       "title": "논문 제목을 여기에 입력",
       "author": "Hong GD, Kim JS, Lee HK",
-      "abstract": "논문 초록 내용을 여기에 입력합니다.",
+      "abstract": "논문 초록 내용을 여기에 입력합니다."\n두 번째 줄 내용입니다.\n세 번째 줄 내용입니다.",
       "pearl": "이 논문의 핵심 한 줄 요약 문장을 여기에 씁니다.",
       "doiLink": "https://doi.org/10.xxxx/xxxxx",
       "image": "assets/images/fig_202602_1.png",
@@ -116,7 +116,7 @@ fig_[년도][Issue번호]_[논문순서].png
       "yearInfo": "2026; 13(1): 11-20",
       "title": "두 번째 논문 제목",
       "author": "Park SH, Choi MJ",
-      "abstract": "두 번째 논문 초록.",
+      "abstract": "첫 번째 줄 내용입니다.\n두 번째 줄 내용입니다.\n세 번째 줄 내용입니다.",
       "pearl": "두 번째 논문 핵심 요약.",
       "doiLink": "https://doi.org/10.xxxx/xxxxx",
       "image": "assets/images/fig_202602_2.png",
@@ -145,7 +145,7 @@ fig_[년도][Issue번호]_[논문순서].png
 | `doiLink` | 논문 DOI 링크 |
 | `image` | 그림 파일 경로 (assets/images/파일명) |
 | `caption` | 그림 아래 설명 |
-| `reverse` | `true`로 하면 그림이 왼쪽, 텍스트가 오른쪽으로 배치됨 (건드리지 마세요)|
+| `reverse` | `true`로 하면 그림이 왼쪽, 텍스트가 오른쪽으로 배치됨 |
 
 > 논문을 추가하려면 `{ ... }` 블록 전체를 복사해서 마지막 논문 뒤에 `, ` 를 붙이고 붙여넣기 하면 됩니다.
 
@@ -237,7 +237,7 @@ https://ceem-webzine.github.io/ceem-webzine/
 
 **② `archives/` 폴더에 새 파일을 만듭니다**
 - `archives/` 폴더 클릭 → `Add file` → `Create new file`
-- 파일 이름을 `2025-01.json` 형식으로 입력합니다 (이전 호의 년도-호수, 예: 첫번째호 → `2025-01`, 12월호 → `2025-12`)
+- 파일 이름을 `2025-01.json` 형식으로 입력합니다 (이전 호의 년도-호수, 예: 첫번째호 → `2025-01`, 12번째호 → `2025-12`)
 - 복사한 내용을 붙여넣기 합니다
 - **`Commit changes`** 를 눌러 저장합니다
 
@@ -256,7 +256,7 @@ https://ceem-webzine.github.io/ceem-webzine/?issue=2025-01
 https://ceem-webzine.github.io/ceem-webzine/?issue=2025-02
 ```
 
-> 호수 형식: `YYYY-NN` (예: 2025년 1월호 → `2025-01`, 2025년 12월호 → `2025-12`)
+> 호수 형식: `YYYY-NN` (예: 2025년 1번째호 → `2025-01`, 2025년 12번째호 → `2025-12`)
 
 레이아웃은 최신호와 완전히 동일하게 표시됩니다.
 
@@ -294,7 +294,7 @@ https://ceem-webzine.github.io/ceem-webzine/?issue=2025-02
 
 새 호 발간 전 아래 순서대로 진행하세요.
 
-- [ ] 이미지 파일 이름을 규칙에 맞게 지었는가? (`fig_년도월_번호.png`)
+- [ ] 이미지 파일 이름을 규칙에 맞게 지었는가? (`fig_년도호수_번호.png`)
 - [ ] `assets/images/`에 이미지를 업로드했는가?
 - [ ] 현재 `data.json`을 `archives/YYYY-MM.json`으로 복사해 저장했는가?
 - [ ] `data.json`을 새 호 내용으로 업데이트했는가?
