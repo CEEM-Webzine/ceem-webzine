@@ -9,7 +9,7 @@
   "papers": [
     {
       "id": 1,
-      "badges": ["editor", "commentary"],
+      "badges": ["editor", "commentary", "public-health"],
       "journal": "Clin Exp Emerg Med",
       "yearInfo": "2025; 12(4): 405-413",
       "title": "Epidemiological trends in emergency department visits by age group: a report from the National Emergency Department Information System (NEDIS) of Korea, 2020–2024",
