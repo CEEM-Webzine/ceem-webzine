@@ -9,7 +9,7 @@
   "papers": [
     {
       "id": 1,
-      "badges": ["editor", "commentary", "public-health"],
+      "badges": ["commentary", "public-health"],
       "journal": "Clin Exp Emerg Med",
       "yearInfo": "2025; 12(4): 405-413",
       "title": "Epidemiological trends in emergency department visits by age group: a report from the National Emergency Department Information System (NEDIS) of Korea, 2020–2024",
@@ -23,15 +23,15 @@
     },
     {
       "id": 2,
-      "badges": ["editorial", "resuscitation"],
+      "badges": ["editorial", "critical-care"],
       "journal": "Clin Exp Emerg Med",
       "yearInfo": "2025; 12(4): 303-305",
       "title": "Updated Sequential Organ Failure Assessment (SOFA)-2 score: major changes and emergency department perspectives",
       "author": "Seung Mok Ryoo",
-      "abstract": "2025년 JAMA에 발표된 SOFA-2 (Sequential Organ Failure Assessment-2) score는 기존 SOFA-1의 한계를 보완하고 현대 중환자 치료 환경을 반영하도록 개정되었다. 주요 변화로는 섬망 치료제 사용 여부의 반영, 고유량 비강 캐뉼라와 에크모 사용의 포함, 말초산소포화도(SpO₂) 기반 평가의 허용, 노르에피네프린과 에피네프린의 총합 용량 기준 도입, <b> 그리고 각 점수 구간의 재조정이 포함된다. </b>",
+      "abstract": "2025년 JAMA에 발표된 SOFA-2 (Sequential Organ Failure Assessment-2) score는 기존 SOFA-1의 한계를 보완하고 현대 중환자 치료 환경을 반영하도록 개정되었다. 주요 변화로는 섬망 치료제 사용 여부의 반영, 고유량 비강 캐뉼라와 에크모 사용의 포함, 말초산소포화도(SpO₂) 기반 평가의 허용, 노르에피네프린과 에피네프린의 총합 용량 기준 도입, 그리고 각 점수 구간의 재조정이 포함된다.",
       "pearl": "SOFA-2는 대규모 중환자실 데이터를 기반으로 개발 및 검증되었으나, 응급실 기반 데이터에 대한 외부 검증은 아직 충분히 이루어지지 않아 추가 연구가 필요하다.",
       "image": "assets/images/fig_202512_2.png",
-      "caption": "Figure: SOFA-2 점수 구성 요소",
+      "caption": "Figure: SOFA-2 score 주요 변경 사항",
       "doiLink": "https://doi.org/10.15441/ceem.25.285",
       "reverse": true
     },
