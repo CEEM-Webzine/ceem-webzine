@@ -76,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                     </div>
                                     <div class="paper-actions">
                                         <button class="btn btn-primary" onclick="window.open('${paper.doiLink}', '_blank')">Full Text</button>
-                                        <button class="btn btn-secondary" onclick="window.open('${paper.doiLink}', '_blank')">View PDF</button>
                                     </div>
                                 </div>
                                 <div class="paper-visual">
