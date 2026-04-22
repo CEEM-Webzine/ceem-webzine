@@ -1,39 +1,53 @@
 {
   "issueInfo": {
     "vol": "Vol. 1",
-    "issue": "Issue 2",
-    "date": "April 2026",
+    "issue": "Issue 1",
+    "date": "March 2026",
     "editorsNote": "Clinical and Experimental Emergency Medicine (CEEM)에서는 앞으로 CEEM에 게재된 주요 연구와 함께 응급의학 분야의 최신 연구 동향을 소개하고자 합니다. 본 Research Highlights가 임상 진료와 연구에 도움이 되기를 바라며, 최신 CEEM 논문을 관련 연구에서 적극적으로 인용해 주시기를 부탁드립니다."
   },
   "citationTip": "Journal Impact Factor는 최근 2년 이내에 출판된 논문의 인용만을 기준으로 산정됩니다. 따라서 CEEM 논문을 인용하실 때에는 가능한 한 최근 2년 이내 (2024–2026년) 출판된 원고, 특히 2025년에 출판된 CEEM 논문을 우선적으로 검토하고 인용해 주시면 CEEM의 학술적 위상 제고에 큰 도움이 됩니다.",
   "papers": [
     {
       "id": 1,
-      "badges": ["review", "digital-health"],
+      "badges": ["commentary", "public-health"],
       "journal": "Clin Exp Emerg Med",
-      "yearInfo": "2025; 12(4): 306-319",
-      "title": "Ethical considerations of artificial intelligence in emergency medicine for triage and resource allocation: a scoping review",
-      "author": "Hyunjae Cha, Junhewk Kim",
-      "abstract": "응급의학에서 AI 기반 트리아지와 자원 배분에 관한 윤리적·법적 논의를 정리한 스코핑 리뷰이다. 연구진은 2020년 이후 발표된 문헌을 Web of Science, Scopus, CINAHL, PubMed, Cochrane Library 등 5개 데이터베이스에서 검색해 최종 27편을 분석하였다. 주요 쟁점으로는 데이터 프라이버시, 알고리즘 편향, 자동화 의존, 설명가능성, 책임 귀속이 확인되었다. 이에 대한 대응 방안으로는 인간 중심 설계, 설명가능 AI(XAI), 규제 프레임워크 구축, 지속적인 검증과 평가, 그리고 AI가 독자적으로 결정하지 않고 의료진이 최종 판단에 참여하는 human-in-the-loop(HITL) 원칙이 제시되었다. 또한 책임 문제에 대해서는 개발자, 의료진, 기관 등 여러 주체가 역할과 책임을 함께 나누는 집단적 책임 모델의 필요성이 논의되었다. 현재까지의 논의는 기술적 개선, 제도적 장치 마련, 그리고 인간-AI 협력 구조 정립의 세 방향으로 구체화되고 있다. 그러나 persuasive AI의 위험성, 생성형 AI에서 나타날 수 있는 hallucination 및 예측 불가능한 출력, 그리고 환자·시민 참여(patient and public involvement and engagement, PPIE)와 같은 주제는 아직 충분히 다뤄지지 않아 추가 연구가 필요하다.",
-      "pearl": "응급의학에서 AI의 윤리 문제는 성능만의 문제가 아니라, 최종 결정권, 책임, 신뢰를 어떻게 설계할 것인가의 문제이다. 따라서 안전한 도입을 위해서는 의료진의 개입 보장과 책임 구조 정립, 그리고 생성형 AI의 새로운 위험에 대한 연구와 논의가 필요하다.",
-      "image": "assets/images/fig_202602_2.png",
-      "caption": "Figure: 검토 문헌에 근거한 현재의 윤리·법적 제안들",
-      "doiLink": "https://doi.org/10.15441/ceem.25.199",
+      "yearInfo": "2025; 12(4): 405-413",
+      "title": "Epidemiological trends in emergency department visits by age group: a report from the National Emergency Department Information System (NEDIS) of Korea, 2020–2024",
+      "author": "Hang A Park, Taehui Kim, Hyo Jin Kim, So-hyun Han",
+      "abstract": "2020년부터 2024년까지 국가응급진료정보망 (National Emergency Department Information System, NEDIS) 데이터를 활용하여 국내 응급실 이용 현황과 임상 결과의 역학적 변화를 분석한 보고서이다. 소아, 성인, 노인 등 연령대별로 응급실 이용 현황과 연도별 추이를 비교·분석하였으며, 다빈도 증상 및 주요 진단명 통계도 함께 제시하였다. 또한 심정지, 심근경색, 패혈증, 뇌졸중, 중증외상, 외상성 뇌손상, COVID-19 감염 등 주요 중증응급질환에 대한 최신 역학 통계를 포함하고 있다.",
+      "pearl": "응급실 방문은 COVID-19 유행 이후 전반적으로 회복세를 보였으나, 2024년에는 의료 환경과 이용 행태의 변화가 관찰되었다. 응급의료체계 개선을 위해 국가 단위 데이터에 기반한 지속적인 모니터링이 필요하다.",
+      "image": "assets/images/fig_202601_1.png",
+      "caption": "Figure: 연도별 연령 및 성별 표준화 자료",
+      "doiLink": "https://doi.org/10.15441/ceem.25.291",
       "reverse": false
     },
     {
       "id": 2,
-      "badges": ["original-article", "ems"],
+      "badges": ["editorial", "critical-care"],
       "journal": "Clin Exp Emerg Med",
-      "yearInfo": "2025; 12(1): 35-46",
-      "title": "Factors that predict emergency department length of stay in analysis of national data",
-      "author": "Minha Kim, Sujeong Lee, Minyoung Choi, Doyeop Kim, Junsang Yoo, Tae Gun Shin, Jin-Hee Lee, Seongjung Kim, Hansol Chang, Eunsil Ko",
-      "abstract": "본 연구는 한국 국가응급진료정보망(NEDIS)의 2018–2022년 자료 25,578,263건을 활용하여 응급실 체류시간(length of stay, LOS) 연장 요인을 분석한 후향적 연구이다. 전체 환자의 응급실 체류시간 중앙값은 2.1시간(interquartile range, 1.1–3.8시간)이었고, 12.6%는 6시간 이상 응급실에 재실하였다. 다변량 로지스틱 회귀분석 결과, 65세 이상 고령 환자(adjusted odds ratio [aOR], 1.42), 타 병원에서 전원된 환자(aOR, 1.47), 119 구급차로 이송된 환자(aOR, 1.09)는 응급실 체류시간 연장 가능성이 유의하게 높았다. 또한 패혈증(aOR, 1.32)과 COVID-19 감염(aOR, 1.41) 역시 체류시간 연장과 유의하게 연관되었다. 반면 소아 환자는 체류시간 연장 위험이 상대적으로 낮았다(aOR, 0.68).",
-      "pearl": "응급실 체류시간 연장에는 환자 특성과 중증도, 의료 체계의 문제들이 함께 영향을 미친다. 특히 고령 환자, 중증질환, 병원 간 전원 등의 관점에서 과밀화 해소의 노력이 필요하다.",
-      "image": "assets/images/fig_202602_1.png",
-      "caption": "Figure: 응급실 내원 환자의 체류시간 분포. 중앙값 2.1시간(사분위수 범위 1.05-3.93시간)",
-      "doiLink": "https://doi.org/10.15441/ceem.24.309",
+      "yearInfo": "2025; 12(4): 303-305",
+      "title": "Updated Sequential Organ Failure Assessment (SOFA)-2 score: major changes and emergency department perspectives",
+      "author": "Seung Mok Ryoo",
+      "abstract": "2025년 JAMA에 발표된 SOFA-2 (Sequential Organ Failure Assessment-2) score는 기존 SOFA-1의 한계를 보완하고 현대 중환자 치료 환경을 반영하도록 개정되었다. 주요 변화로는 섬망 치료제 사용 여부의 반영, 고유량 비강 캐뉼라와 에크모 사용의 포함, 말초산소포화도(SpO₂) 기반 평가의 허용, 노르에피네프린과 에피네프린의 총합 용량 기준 도입, 그리고 각 점수 구간의 재조정이 포함된다.",
+      "pearl": "SOFA-2는 대규모 중환자실 데이터를 기반으로 개발 및 검증되었으나, 응급실 기반 데이터에 대한 외부 검증은 아직 충분히 이루어지지 않아 추가 연구가 필요하다.",
+      "image": "assets/images/fig_202512_2.png",
+      "caption": "Figure: SOFA-2 score 주요 변경 사항",
+      "doiLink": "https://doi.org/10.15441/ceem.25.285",
       "reverse": true
+    },
+    {
+      "id": 3,
+      "badges": ["systematic-review", "airway"],
+      "journal": "Clin Exp Emerg Med",
+      "yearInfo": "2025; 12(4): 331-341",
+      "title": "Efficacy of ketamine versus etomidate for rapid sequence intubation of critically ill patients in terms of mortality and success rate: a systematic review and meta-analysis of randomized controlled trials",
+      "author": "Anjishnujit Bandyopadhyay, Partha Haldar, Chhavi Sawhney, Abhishek Singh",
+      "abstract": "본 연구는 중증 환자에서 rapid sequence intubation (RSI) 시 유도제로 사용되는 ketamine과 etomidate의 사망률 및 삽관 성공률을 비교한 무작위 대조 연구(RCT) 기반 체계적 문헌고찰 및 메타분석이다. 전체 사망률에서 두 약제 간 유의한 차이는 없었으며, 첫 시도 삽관 성공률 또한 통계적으로 유의한 차이가 확인되지 않았다.\n본 메타분석 보고 이후 2025년 NEJM에 발표된 대규모 무작위 임상시험인 \"Ketamine or Etomidate for Tracheal Intubation of Critically Ill Adults\"에서도 사망률 차이는 관찰되지 않았다. 다만 ketamine군(median dose 1.6 mg/kg)에서 etomidate군(median dose 0.28 mg/kg)에 비해 삽관 직후 저혈압 발생률이 더 높게 보고되었다.",
+      "pearl": "Ketamine과 etomidate는 사망률과 삽관 성공률에서 유의한 차이를 보이지 않았다. 그러나 저혈압 발생 빈도를 고려할 때, 혈역학적으로 불안정한 환자에서는 약제 선택과 용량을 신중히 고려할 필요가 있다.",
+      "image": "assets/images/fig_202601_3.png",
+      "caption": "Figure: (A) Forest plot and (B) trial sequential analysis (TSA) for postinduction hypotension",
+      "doiLink": "https://doi.org/10.15441/ceem.24.363",
+      "reverse": false
     }
   ]
 }
