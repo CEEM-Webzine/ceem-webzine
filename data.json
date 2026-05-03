@@ -1,53 +1,39 @@
 {
   "issueInfo": {
     "vol": "Vol. 1",
-    "issue": "Issue 1",
-    "date": "March 2026",
+    "issue": "3",
+    "date": "May 2026",
     "editorsNote": "Clinical and Experimental Emergency Medicine (CEEM)에서는 앞으로 CEEM에 게재된 주요 연구와 함께 응급의학 분야의 최신 연구 동향을 소개하고자 합니다. 본 Research Highlights가 임상 진료와 연구에 도움이 되기를 바라며, 최신 CEEM 논문을 관련 연구에서 적극적으로 인용해 주시기를 부탁드립니다."
   },
   "citationTip": "Journal Impact Factor는 최근 2년 이내에 출판된 논문의 인용만을 기준으로 산정됩니다. 따라서 CEEM 논문을 인용하실 때에는 가능한 한 최근 2년 이내 (2024–2026년) 출판된 원고, 특히 2025년에 출판된 CEEM 논문을 우선적으로 검토하고 인용해 주시면 CEEM의 학술적 위상 제고에 큰 도움이 됩니다.",
   "papers": [
     {
       "id": 1,
-      "badges": ["commentary", "public-health"],
+      "badges": ["commentary", "critical-care"],
       "journal": "Clin Exp Emerg Med",
-      "yearInfo": "2025; 12(4): 405-413",
-      "title": "Epidemiological trends in emergency department visits by age group: a report from the National Emergency Department Information System (NEDIS) of Korea, 2020–2024",
-      "author": "Hang A Park, Taehui Kim, Hyo Jin Kim, So-hyun Han",
-      "abstract": "2020년부터 2024년까지 국가응급진료정보망 (National Emergency Department Information System, NEDIS) 데이터를 활용하여 국내 응급실 이용 현황과 임상 결과의 역학적 변화를 분석한 보고서이다. 소아, 성인, 노인 등 연령대별로 응급실 이용 현황과 연도별 추이를 비교·분석하였으며, 다빈도 증상 및 주요 진단명 통계도 함께 제시하였다. 또한 심정지, 심근경색, 패혈증, 뇌졸중, 중증외상, 외상성 뇌손상, COVID-19 감염 등 주요 중증응급질환에 대한 최신 역학 통계를 포함하고 있다.",
-      "pearl": "응급실 방문은 COVID-19 유행 이후 전반적으로 회복세를 보였으나, 2024년에는 의료 환경과 이용 행태의 변화가 관찰되었다. 응급의료체계 개선을 위해 국가 단위 데이터에 기반한 지속적인 모니터링이 필요하다.",
-      "image": "assets/images/fig_202601_1.png",
-      "caption": "Figure: 연도별 연령 및 성별 표준화 자료",
-      "doiLink": "https://doi.org/10.15441/ceem.25.291",
+      "yearInfo": "2026; 13(1): 90-97",
+      "title": "Epidemiology of cardiac arrest and acute myocardial infarction in emergency departments in Korea, 2020-2024: a report using the National Emergency Department Information System (NEDIS) database",
+      "author": "Sejoong Ahn, Jung Eon Kim, Sung-keun Ko, Eunsil Ko",
+      "abstract": "2020년부터 2024년까지 NEDIS 데이터를 분석하여 국내 응급실 내 심정지(CA)와 급성 심근경색(AMI)의 역학 변화를 보고한 연구로, 전체 심정지 발생률은 안정적이나 소아 심정지 방문은 2020년 10만 명당 7.6건에서 2024년 10.7건으로 유의하게 증가하였다. 급성 심근경색의 경우 원내 사망률이 9.8%에서 9.3%로 개선되었으며 특히 노인 환자군에서 뚜렷한 개선세가 확인되어 한국 응급의료 체계의 성과와 변화를 동시에 보여준다.",
+      "pearl": "소아 심정지 환자의 유의미한 증가와 고령화에 따른 노인 환자 비중 확대를 반영하여, 중증 응급질환의 예후 개선을 위한 국가적 자원 배분 전략과 지속적인 데이터 모니터링이 필요하다.",
+      "image": "assets/images/202603_1.png",
+      "caption": "Figure: 연도별 심정지 및 급성 심근경색의 발생률과 사망률 추이",
+      "doiLink": "https://doi.org/10.15441/ceem.25.318",
       "reverse": false
     },
     {
       "id": 2,
-      "badges": ["editorial", "critical-care"],
+      "badges": ["review", "education"],
       "journal": "Clin Exp Emerg Med",
-      "yearInfo": "2025; 12(4): 303-305",
-      "title": "Updated Sequential Organ Failure Assessment (SOFA)-2 score: major changes and emergency department perspectives",
-      "author": "Seung Mok Ryoo",
-      "abstract": "2025년 JAMA에 발표된 SOFA-2 (Sequential Organ Failure Assessment-2) score는 기존 SOFA-1의 한계를 보완하고 현대 중환자 치료 환경을 반영하도록 개정되었다. 주요 변화로는 섬망 치료제 사용 여부의 반영, 고유량 비강 캐뉼라와 에크모 사용의 포함, 말초산소포화도(SpO₂) 기반 평가의 허용, 노르에피네프린과 에피네프린의 총합 용량 기준 도입, 그리고 각 점수 구간의 재조정이 포함된다.",
-      "pearl": "SOFA-2는 대규모 중환자실 데이터를 기반으로 개발 및 검증되었으나, 응급실 기반 데이터에 대한 외부 검증은 아직 충분히 이루어지지 않아 추가 연구가 필요하다.",
-      "image": "assets/images/fig_202512_2.png",
-      "caption": "Figure: SOFA-2 score 주요 변경 사항",
-      "doiLink": "https://doi.org/10.15441/ceem.25.285",
+      "yearInfo": "2025; 12(1): 16-25",
+      "title": "Simulation intervention related to family presence during resuscitation for physicians and medical students: a scoping review",
+      "author": "Kyung Hye Park, Jannet J. Lee-Jayaram, Melissa K. Kahili-Heede, Benjamin W. Berg",
+      "abstract": "의사 및 의대생 대상 소생술 중 가족 참관(FPDR) 시뮬레이션에 관한 최초의 범위 문헌고찰로, 가족의 참관이 의료진의 심리적 업무 부하를 높이고 제세동을 다소 지연시키는 경향이 있음에도 불구하고 전체적인 CPR 품질에는 유의미한 저하를 일으키지 않음을 확인하였다. 이는 적절한 교육이 병행된다면 소생술의 질을 유지하면서도 가족 중심 치료를 안전하게 구현할 수 있음을 시사한다.",
+      "pearl": "현재 교육 보고가 전무한 의대생 단계부터 FPDR 상황에서의 제세동 지연 방지 및 다학제 팀 기반 훈련을 적극 도입하여 소생술 전문성을 강화하려는 노력이 필요하다.",
+      "image": "assets/images/202603_2.png",
+      "caption": "Figure: [Table 2] 요약: FPDR 시뮬레이션 연구의 주요 분류 및 핵심 결과",
+      "doiLink": "https://doi.org/10.15441/ceem.24.224",
       "reverse": true
-    },
-    {
-      "id": 3,
-      "badges": ["systematic-review", "airway"],
-      "journal": "Clin Exp Emerg Med",
-      "yearInfo": "2025; 12(4): 331-341",
-      "title": "Efficacy of ketamine versus etomidate for rapid sequence intubation of critically ill patients in terms of mortality and success rate: a systematic review and meta-analysis of randomized controlled trials",
-      "author": "Anjishnujit Bandyopadhyay, Partha Haldar, Chhavi Sawhney, Abhishek Singh",
-      "abstract": "본 연구는 중증 환자에서 rapid sequence intubation (RSI) 시 유도제로 사용되는 ketamine과 etomidate의 사망률 및 삽관 성공률을 비교한 무작위 대조 연구(RCT) 기반 체계적 문헌고찰 및 메타분석이다. 전체 사망률에서 두 약제 간 유의한 차이는 없었으며, 첫 시도 삽관 성공률 또한 통계적으로 유의한 차이가 확인되지 않았다.\n본 메타분석 보고 이후 2025년 NEJM에 발표된 대규모 무작위 임상시험인 \"Ketamine or Etomidate for Tracheal Intubation of Critically Ill Adults\"에서도 사망률 차이는 관찰되지 않았다. 다만 ketamine군(median dose 1.6 mg/kg)에서 etomidate군(median dose 0.28 mg/kg)에 비해 삽관 직후 저혈압 발생률이 더 높게 보고되었다.",
-      "pearl": "Ketamine과 etomidate는 사망률과 삽관 성공률에서 유의한 차이를 보이지 않았다. 그러나 저혈압 발생 빈도를 고려할 때, 혈역학적으로 불안정한 환자에서는 약제 선택과 용량을 신중히 고려할 필요가 있다.",
-      "image": "assets/images/fig_202601_3.png",
-      "caption": "Figure: (A) Forest plot and (B) trial sequential analysis (TSA) for postinduction hypotension",
-      "doiLink": "https://doi.org/10.15441/ceem.24.363",
-      "reverse": false
     }
   ]
 }
