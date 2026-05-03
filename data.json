@@ -16,7 +16,7 @@
       "author": "Sejoong Ahn, Jung Eon Kim, Sung-keun Ko, Eunsil Ko",
       "abstract": "2020년부터 2024년까지 NEDIS 데이터를 분석하여 국내 응급실 내 심정지(CA)와 급성 심근경색(AMI)의 역학 변화를 보고한 연구로, 전체 심정지 발생률은 안정적이나 소아 심정지 방문은 2020년 10만 명당 7.6건에서 2024년 10.7건으로 유의하게 증가하였다. 급성 심근경색의 경우 원내 사망률이 9.8%에서 9.3%로 개선되었으며 특히 노인 환자군에서 뚜렷한 개선세가 확인되어 한국 응급의료 체계의 성과와 변화를 동시에 보여준다.",
       "pearl": "소아 심정지 환자의 유의미한 증가와 고령화에 따른 노인 환자 비중 확대를 반영하여, 중증 응급질환의 예후 개선을 위한 국가적 자원 배분 전략과 지속적인 데이터 모니터링이 필요하다.",
-      "image": "assets/images/202603_1.png",
+      "image": "assets/images/fig_202603_1.png",
       "caption": "Figure: 연도별 심정지 및 급성 심근경색의 발생률과 사망률 추이",
       "doiLink": "https://doi.org/10.15441/ceem.25.318",
       "reverse": false
@@ -30,7 +30,7 @@
       "author": "Kyung Hye Park, Jannet J. Lee-Jayaram, Melissa K. Kahili-Heede, Benjamin W. Berg",
       "abstract": "의사 및 의대생 대상 소생술 중 가족 참관(FPDR) 시뮬레이션에 관한 최초의 범위 문헌고찰로, 가족의 참관이 의료진의 심리적 업무 부하를 높이고 제세동을 다소 지연시키는 경향이 있음에도 불구하고 전체적인 CPR 품질에는 유의미한 저하를 일으키지 않음을 확인하였다. 이는 적절한 교육이 병행된다면 소생술의 질을 유지하면서도 가족 중심 치료를 안전하게 구현할 수 있음을 시사한다.",
       "pearl": "현재 교육 보고가 전무한 의대생 단계부터 FPDR 상황에서의 제세동 지연 방지 및 다학제 팀 기반 훈련을 적극 도입하여 소생술 전문성을 강화하려는 노력이 필요하다.",
-      "image": "assets/images/202603_2.png",
+      "image": "assets/images/fig_202603_2.png",
       "caption": "Figure: [Table 2] 요약: FPDR 시뮬레이션 연구의 주요 분류 및 핵심 결과",
       "doiLink": "https://doi.org/10.15441/ceem.24.224",
       "reverse": true
